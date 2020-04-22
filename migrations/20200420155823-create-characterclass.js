@@ -12,16 +12,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      roleId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        reference: {
-          model: "Roles",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    isGuildmaster: DataTypes.BOOLEAN,
-    isClassleader: DataTypes.BOOLEAN
+    isGuildMaster: DataTypes.BOOLEAN,
+    isClassLeader: DataTypes.BOOLEAN
   }, {});
   Character.associate = function (models) {
     Character.belongsToMany(models.Event, { through: "CharacterEvent", foreignKey: "characterId" })

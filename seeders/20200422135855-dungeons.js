@@ -4,46 +4,42 @@ const Dungeon = require("../models").Dungeon
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
 
     const dungeons = await Promise.all([
       Dungeon.upsert({
+        id: 1,
         name: "Molten Core"
       }),
       Dungeon.upsert({
+        id: 2,
         name: "Blackwing Lair"
       }),
       Dungeon.upsert({
+        id: 3,
         name: "Zul'Gurub"
       }),
       Dungeon.upsert({
+        id: 4,
         name: "Ruins of Ahn'Qiraj"
       }),
       Dungeon.upsert({
+        id: 5,
         name: "Temple of Ahn'Qiraj"
       }),
       Dungeon.upsert({
+        id: 6,
         name: "Naxxramas"
+      }),
+      Dungeon.upsert({
+        id: 7,
+        name: "Onyxia's Lair"
       })
     ])
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete("Dungeon", null, {});
+
   }
 };
