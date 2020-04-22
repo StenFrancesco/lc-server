@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Dungeon.associate = function (models) {
-    // associations can be defined here
+    Dungeon.hasMany(models.Boss)
+    Dungeon.hasMany(models.Item)
   };
   return Dungeon;
 };
