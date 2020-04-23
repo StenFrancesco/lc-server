@@ -4,8 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    roleId: DataTypes.INTEGER
+    }
   }, {});
   CharacterClass.associate = function (models) {
     CharacterClass.hasMany(models.Character)

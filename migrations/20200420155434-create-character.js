@@ -50,10 +50,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      isGuildmaster: {
+      isGuildMaster: {
         type: Sequelize.BOOLEAN
       },
-      isClassleader: {
+      isClassLeader: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
