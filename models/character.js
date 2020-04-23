@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     Character.belongsTo(models.Guild)
     Character.hasOne(models.Wishlist)
     Character.hasOne(models.CharacterClass)
+    Character.hasMany(models.AssignedItems)
   };
   return Character;
 };
