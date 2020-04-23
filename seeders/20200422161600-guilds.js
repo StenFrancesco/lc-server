@@ -3,7 +3,7 @@
 const Guild = require("../models").Guild
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
 
     const guilds = await Promise.all([
       Guild.upsert({
