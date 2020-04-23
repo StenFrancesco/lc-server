@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     Item.belongsTo(models.ItemSubClass)
     Item.belongsTo(models.ItemQuality)
     Item.belongsTo(models.Boss)
+    Item.belongsTo(models.AssignedItems)
     Item.belongsToMany(models.Wishlist, { through: "WishlistDetails", foreignKey: "itemId" })
   };
   return Item;
