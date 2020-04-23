@@ -48,22 +48,26 @@ module.exports = {
       }),
       ItemClass.upsert({
         id: 10,
-        name: "Mainhand"
+        name: "One-Hand"
       }),
       ItemClass.upsert({
         id: 11,
-        name: "Offhand"
+        name: "Off Hand"
       }),
       ItemClass.upsert({
         id: 12,
-        name: "Trinket"
+        name: "Two Hand"
       }),
       ItemClass.upsert({
         id: 13,
-        name: "Ranged"
+        name: "Trinket"
       }),
       ItemClass.upsert({
         id: 14,
+        name: "Ranged"
+      }),
+      ItemClass.upsert({
+        id: 15,
         name: "Finger"
       }),
 
@@ -72,12 +76,8 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('ItemClass', null, {});
+
   }
 };

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Dungeon.associate = function (models) {
     Dungeon.hasMany(models.Boss)
-    Dungeon.hasMany(models.Item)
+    Dungeon.belongsToMany(models.Event, { through: "Raid", foreignKey: "dungeonId" })
   };
   return Dungeon;
 };

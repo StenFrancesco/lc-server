@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Event.associate = function (models) {
-    Event.belongsToMany(models.Character, { through: "CharacterEvent", foreignKey: "characterId" })
+    Event.belongsToMany(models.Character, { through: "CharacterEvent", foreignKey: "eventId" })
     Event.belongsToMany(models.Dungeon, { through: "Raid", foreignKey: "eventId" })
   };
   return Event;

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     itemSubClassId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     itemQualityId: {
       type: DataTypes.INTEGER,

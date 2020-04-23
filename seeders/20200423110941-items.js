@@ -8,24 +8,20 @@ module.exports = {
     const items = await Promise.all([
       Item.upsert({
         id: 1,
-        bossId: ,
-        itemClassId: ,
-        itemSubClassId: ,
-        itemQualityId: ,
+        bossId: 10,
+        itemClassId: 12,
+        itemSubClassId: 6,
+        itemQualityId: 2,
         name: "Bonereaver's Edge",
-        imageUrl: 
+        imageUrl: "https://classic.wowhead.com/item=17076/bonereavers-edge"
       })
     ])
 
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Item', null, {});
+
   }
 };

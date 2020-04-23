@@ -30,7 +30,7 @@ module.exports = {
       },
       itemSubClassId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         reference: {
           model: "ItemSubClasses",
           key: "id"

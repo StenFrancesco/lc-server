@@ -1,26 +1,26 @@
 'use strict';
 
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+const WishlistDetails = require("../models").WishlistDetails
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+
+    const wishlistdetails = await Promise.all([
+      WishlistDetails.upsert({
+        wishlistId: 1,
+        itemId: 1
+      }),
+      WishlistDetails.upsert({
+        wishlistId: 2,
+        itemId: 1
+      })
+    ])
+
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('WishlistDetails', null, {});
+
   }
 };

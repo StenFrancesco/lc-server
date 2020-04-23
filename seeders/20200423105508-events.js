@@ -1,26 +1,21 @@
 'use strict';
 
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+const Event = require("../models").Event
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    const events = await Promise.all([
+      Event.upsert({
+        id: 1,
+        date: new Date(),
+        name: "MC raid"
+      })
+    ])
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Event', null, {});
+
   }
 };
