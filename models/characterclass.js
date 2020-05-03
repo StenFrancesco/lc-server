@@ -1,14 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const CharacterClass = sequelize.define('CharacterClass', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
+  const CharacterClass = sequelize.define('characterclass', {
+    name: DataTypes.STRING
   }, {});
   CharacterClass.associate = function (models) {
-    CharacterClass.hasMany(models.Character)
-    CharacterClass.belongsToMany(models.Role, { through: 'ClassRoles', foreignKey: 'classId' })
+    CharacterClass.hasMany(models.character)
+    CharacterClass.belongsToMany(models.role, { through: 'classrole', foreignKey: 'classId' })
   };
   return CharacterClass;
 };

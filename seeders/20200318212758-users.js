@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 const { SALT_ROUNDS } = require("../config/constants");
 
-const User = require("../models").User;
+const User = require("../models").user;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -21,19 +21,19 @@ module.exports = {
         password: bcrypt.hashSync("dummy1234", SALT_ROUNDS)
       }),
       User.upsert({
-        id: 1,
+        id: 3,
         name: "razz",
         email: "razzion@live.com",
         password: bcrypt.hashSync("test1234", SALT_ROUNDS)
       }),
       User.upsert({
-        id: 1,
+        id: 4,
         name: "dysphora",
         email: "dys@dys.com",
         password: bcrypt.hashSync("test1234", SALT_ROUNDS)
       }),
       User.upsert({
-        id: 1,
+        id: 5,
         name: "fletch",
         email: "fletch@dynasty.com",
         password: bcrypt.hashSync("test1234", SALT_ROUNDS)
@@ -43,7 +43,7 @@ module.exports = {
     // console.log(`SEEDED: ${users.length} users`);
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("User", null, {});
+  down: async (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete("users", null, {});
   }
 };

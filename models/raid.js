@@ -1,12 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Raid = sequelize.define('Raid', {
+  const raid = sequelize.define('raid', {
     eventId: DataTypes.INTEGER,
     dungeonId: DataTypes.INTEGER
   }, {});
-  Raid.associate = function (models) {
-    Raid.belongsTo(models.Dungeon, { foreignKey: "dungeonId" })
-    Raid.belongsTo(models.Event, { foreignKey: "eventId" })
+  raid.associate = function(models) {
+    // associations can be defined here
   };
-  return Raid;
+  return raid;
 };

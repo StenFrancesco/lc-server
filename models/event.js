@@ -1,15 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Event = sequelize.define('Event', {
-    date: DataTypes.DATE,
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
+  const Event = sequelize.define('event', {
+    name: DataTypes.STRING,
+    date: DataTypes.DATE
   }, {});
   Event.associate = function (models) {
-    Event.belongsToMany(models.Character, { through: "CharacterEvent", foreignKey: "eventId" })
-    Event.belongsToMany(models.Dungeon, { through: "Raid", foreignKey: "eventId" })
+    Event.belongsToMany(models.character, { through: "characterevent", foreignKey: "eventId" })
   };
   return Event;
 };

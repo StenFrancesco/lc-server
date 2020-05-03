@@ -1,15 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Boss = sequelize.define('Boss', {
-    dungeonId: DataTypes.INTEGER,
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
+  const Boss = sequelize.define('boss', {
+    name: DataTypes.STRING
   }, {});
   Boss.associate = function (models) {
-    Boss.hasMany(models.Item)
-    Boss.belongsTo(models.Dungeon)
+    Boss.belongsTo(models.dungeon)
+    Boss.hasMany(models.item)
   };
   return Boss;
 };

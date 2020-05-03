@@ -1,14 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Guild = sequelize.define('Guild', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+  const Guild = sequelize.define('guild', {
+    name: DataTypes.STRING,
     imageUrl: DataTypes.STRING
   }, {});
   Guild.associate = function (models) {
-    Guild.hasMany(models.Character)
+    Guild.hasMany(models.character)
   };
   return Guild;
 };
