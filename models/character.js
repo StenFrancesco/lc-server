@@ -1,24 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Character = sequelize.define('Character', {
-    userId: DataTypes.INTEGER,
-    guildId: DataTypes.INTEGER,
-    classId: DataTypes.INTEGER,
-    wishlistId: DataTypes.INTEGER,
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+  const Character = sequelize.define('character', {
+    name: DataTypes.STRING,
     isGuildMaster: DataTypes.BOOLEAN,
     isClassLeader: DataTypes.BOOLEAN
   }, {});
   Character.associate = function (models) {
-    Character.belongsToMany(models.Event, { through: "CharacterEvent", foreignKey: "characterId" })
-    Character.belongsTo(models.User)
-    Character.belongsTo(models.Guild)
-    Character.hasOne(models.Wishlist)
-    Character.hasOne(models.CharacterClass)
-    Character.hasMany(models.AssignedItems)
+    Character.belongsToMany(models.event, { through: "characterevent", foreignKey: "characterId" })
+    Character.belongsTo(models.characterclass)
+    Character.belongsTo(models.guild)
+    Character.belongsTo(models.wishlist)
+    Character.belongsTo(models.user)
+    Character.belongsToMany(models.item, { through: "assigneditems", foreignKey: "itemId" })
   };
   return Character;
 };

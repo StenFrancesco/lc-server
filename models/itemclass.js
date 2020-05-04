@@ -1,13 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const ItemClass = sequelize.define('ItemClass', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+  const ItemClass = sequelize.define('itemclass', {
+    name: DataTypes.STRING
   }, {});
   ItemClass.associate = function (models) {
-    ItemClass.hasMany(models.Item)
+    ItemClass.hasMany(models.item)
   };
   return ItemClass;
 };

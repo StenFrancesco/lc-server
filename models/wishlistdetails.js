@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const WishlistDetails = sequelize.define('WishlistDetails', {
+  const WishlistDetails = sequelize.define('wishlistdetails', {
     wishlistId: DataTypes.INTEGER,
     itemId: DataTypes.INTEGER
   }, {});
   WishlistDetails.associate = function (models) {
-    WishlistDetails.belongsTo(models.Wishlist, { foreignKey: "wishlistId" })
-    WishlistDetails.belongsTo(models.Item, { foreignKey: "itemId" })
+    WishlistDetails.belongsTo(models.wishlist, { foreignKey: "wishlistId" })
+    WishlistDetails.belongsTo(models.item, { foreignKey: "itemId" })
   };
   return WishlistDetails;
 };
