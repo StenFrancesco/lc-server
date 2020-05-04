@@ -6,7 +6,7 @@ const Wishlist = require("../models").wishlist
 
 const router = new Router();
 
-router.get("/chars", async (req, res, ) => {
+router.get("/chars", async (req, res) => {
   const allCharacters = await Character.findAll(
     {
       include: [

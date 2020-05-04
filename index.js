@@ -59,6 +59,11 @@ app.use("/", authRouter);
 const characterRouter = require("./routers/character");
 app.use("/", characterRouter);
 
+const assignedRouter = require("./routers/overview");
+app.use("/", assignedRouter);
+
+
+
 // Listen for connections on specified port (default is port 4000)
 const { PORT } = require("./config/constants");
 
