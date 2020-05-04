@@ -15,6 +15,15 @@ module.exports = {
         name: "Bonereaver's Edge",
         imageUrl: "",
         link: "https://classic.wowhead.com/item=17076/bonereavers-edge"
+      }),
+      Item.upsert({
+        id: 2,
+        bossId: 18,
+        itemclassId: 13,
+        itemqualityId: 2,
+        name: "Neltharion's Tear",
+        imageUrl: "",
+        link: "https://classic.wowhead.com/item=19379/neltharions-tear"
       })
     ])
 

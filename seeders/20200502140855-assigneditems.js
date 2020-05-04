@@ -9,6 +9,10 @@ module.exports = {
       AssignedItem.upsert({
         characterId: 1,
         itemId: 1
+      }),
+      AssignedItem.upsert({
+        characterId: 4,
+        itemId: 2
       })
     ])
 
