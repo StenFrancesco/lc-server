@@ -62,6 +62,9 @@ app.use("/", characterRouter);
 const assignedRouter = require("./routers/overview");
 app.use("/", assignedRouter);
 
+const itemRouter = require("./routers/item");
+app.use("/", itemRouter)
+
 
 
 // Listen for connections on specified port (default is port 4000)
