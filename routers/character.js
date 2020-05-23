@@ -3,6 +3,7 @@ const Character = require("../models").character
 const User = require("../models").user
 const Guild = require("../models").guild
 const Wishlist = require("../models").wishlist
+const CharacterClass = require("../models").characterclass
 
 const router = new Router();
 
@@ -12,6 +13,9 @@ router.get("/chars", async (req, res) => {
       include: [
         {
           model: User
+        },
+        {
+          model: CharacterClass
         },
         {
           model: Guild
